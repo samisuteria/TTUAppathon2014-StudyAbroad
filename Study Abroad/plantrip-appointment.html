@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+                <style type="text/css">
+	body {
+    margin-top: -20px;
+    padding-top: 0px;
+	background-image:url('./Elegant_Background-7.jpg');
+	}
+
+	</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+                <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+                </head>
+    <body>
+        <div class="container">
+            
+            <h1>Schedule an Appointment</h1>
+            
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                            </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Program</label>
+                    <div class="col-sm-10">
+                        <select id="inputProgram">
+                            <option value="0">Select a Program</option>
+                            <option value="1">Faculty-Led Programs</option>
+                            <option value="2">TTU Center - Seville, Spain</option>
+                            <option value="3">TTU Reciprocal Exchange Programs</option>
+                            <option value="4">TTU Approved Affiliate Programs</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
+                    <div class="col-sm-10">
+                        <select id="inputDate">
+                            <option value="0">Select a Date</option>
+                            <option value="1">Monday Feb. 24</option>
+                            <option value="2">Tuesday Feb. 25</option>
+                            <option value="3">Wednesday Feb. 26</option>
+                            <option value="4">Thursday Feb. 27</option>
+                            <option value="5">Friday Feb. 28</option>
+                            <option value="6">Monday Mar. 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Time</label>
+                    <div class="col-sm-10">
+                        <select id="inputTime">
+                            <option value="0">Select a Time</option>
+                            <option value="1">10:00 am</option>
+                            <option value="2">11:00 am</option>
+                            <option value="3">12:00 pm</option>
+                            <option value="4">1:00 pm</option>
+                            <option value="5">2:00 pm</option>
+                            <option value="6">3:00 pm</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" onClick="formSubmit()" >Submit</button>
+                    </div>
+                </div>
+                
+                
+            </form>
+            
+            
+            
+            
+        </div>
+        
+        
+        
+        
+        
+        
+        <script src="jquery-2.0.3.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script>
+            Parse.initialize("QiuS108Lf57O9lb83Wn05gLIbTEhN4hVCUdRJwbn", "H7J1h1RwbE3zEdXn5pRAaD4kQjBgCHUfHC1yTD2N");
+            
+            function formSubmit(){
+                
+                alert("asdsad");
+                
+                var form = Parse.Object.extend("Appointment");
+                var app = new form();
+                
+                app.set("name", $("#inputName").val());
+                app.set("email", $("#inputEmail").val());
+                app.set("program", $("#inputProgram").val());
+                app.set("date", $("#inputDate").val());
+                app.set("time", $("#inputTime").val());
+                
+                app.save(null, {
+                    success: function(app){
+                        alert("Appointment Created!");
+                    },
+                         error: function(app, error){
+                         alert("Whoops - some error creating the appointment!");
+                         }
+                         
+                         });
+                
+            }
+        </script>
+    </body>
+</html>
